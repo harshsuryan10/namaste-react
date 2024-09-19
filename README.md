@@ -40,3 +40,9 @@
 - 2 very important hook
 -  1. useState()
 -  2. useEffect()
+-  
+
+# 2 types Routing in web apps
+- Client Side Routing
+- Server Side Routing
+

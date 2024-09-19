@@ -36,6 +36,11 @@
 .search{
     padding: 10px;
 }
+.menu{
+    padding: 10px;
+    width: 200px;
+    height: 400px;
+}
 .res-logo{
     width: 95%;
     
@@ -48,7 +53,8 @@
     margin:  10px;
 }
 .login{
-    padding: 0 20px;
+    padding: 0px 40px;
+    font-size: 24px;
     cursor: pointer;
 }
 .shimmer-container{
@@ -60,4 +66,8 @@
     height: 400px;
     margin: 20px;
     background-color: lightgray;
+}
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
 }
