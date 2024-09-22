@@ -2,125 +2,84 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Error from "./components/Error";
+// import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 //part-03
 const AppLayout = () => {
-  const [userName,setUserName] = useState();
+  const [userName, setUserName] = useState();
   useEffect(() => {
     const data = {
-      name : "Harsh Suryan"
-    }
+      name: "Harsh Suryan",
+    };
     setUserName(data.name);
-  },[])
+  }, []);
   return (
-    <UserContext.Provider value={{loggedInUser : userName}}>
-      <div className="app">
-        <Header/>
-        <Outlet/>
-      </div>  
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
-}
+};
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout/>,
-    children:[
+    element: <AppLayout />,
+    children: [
       {
         path: "/",
-        element: <Body/>
+        element: <Body />,
       },
       {
         path: "/about",
-        element: <About/>
+        element: <About />,
       },
       {
-        path:"/contact",
-        element:<Contact/>
+        path: "/contact",
+        element: <Contact />,
       },
       {
-        path:"/restaurants/:resId",
-        element:<RestaurantMenu/>
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      }
     ],
-    errorElement:<Error/>
-  }
-])
+    errorElement: <Error />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+root.render(<RouterProvider router={appRouter} />);
 
 //part-02
-
 
 // const styleCard={
 //     backgroundColor:"lightgrey"
 // }
-
-
 
 // const AppLayout = () => {
 //     return (
 //       <div className="app">
 //         <Header/>
 //         <Body/>
-//       </div>  
+//       </div>
 //     );
 // }
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(<AppLayout/>);
-
-
-
-
-
-
-
-
 
 //part-02
 //React Components
@@ -147,7 +106,7 @@ root.render(<RouterProvider router={appRouter}/>);
 // const number = 12/0;
 // const HeadingComponent = ()=> {
 //     return (<div className="container">
-//                 <Title/> 
+//                 <Title/>
 //                 {title};
 //                 <h1>{number}</h1>
 //                 <h1>Heading Component</h1>
@@ -166,8 +125,6 @@ root.render(<RouterProvider router={appRouter}/>);
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 // root.render(jsxHeading);
-
-
 
 //part - 01
 // //Nested create h1 in react
