@@ -1,5 +1,7 @@
 const RestaurantCard = (props) => {
+    
     const {resData} = props;
+    // console.log(resData);
     const {name,cloudinaryImageId,cuisines,avgRating,costfortwo,sla} = resData.info;
     return (
         <div className="flex flex-col  m-4 p-4 w-[300px] h-[500px] bg-gray-100 border border-solid border-black hover:bg-gray-200 ">

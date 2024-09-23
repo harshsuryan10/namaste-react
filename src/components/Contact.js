@@ -1,9 +1,12 @@
 const Contact = () => {
     return (
         <div className="about">
-            <h1>Food Delivary</h1>
-            <h2>Contact US </h2>
-            <p>+91-1234567890</p>
+            <h1 className="font-bold text-3xl p-4 m-4">Contact Us Page</h1>
+            <form>
+                <input type="text" className="border border-black p-2 m-2" placeholder="name"/>
+                <input type="text" className="border border-black p-2 m-2" placeholder="message"/>
+                <button className="border border-black p-2 m-2 bg-gray-50 rounded-lg">Submit</button>
+            </form>
         </div>
     );
 }

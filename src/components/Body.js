@@ -41,7 +41,7 @@ const Body = () => {
                 <button className="px-4 py-2 bg-green-100 m-4 rounded-sm" onClick={() => {
                         const filteredRest = listOfResturant.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setfilteredResturant(filteredRest);
-                    }}>Seach</button>
+                    }}>Search</button>
                 </div>
                 <button className="px-4 py-2 bg-green-100 rounded-sm" onClick={()=>{
                     listOfResturant = listOfResturant.filter((resturant) => resturant.info.avgRating > 4.0);

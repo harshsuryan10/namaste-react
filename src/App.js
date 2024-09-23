@@ -11,6 +11,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Login from './components/Login';
 
 //part-03
 const AppLayout = () => {
@@ -23,7 +24,7 @@ const AppLayout = () => {
   }, []);
   return (
     <Provider store={appStore}>
-      <UserContext.Provider value={{ loggedInUser: userName }}>
+      <UserContext.Provider value={{ loggedInUser: userName, setLoggedInUser: setUserName }}>
         <div className="app">
           <Header />
           <Outlet />
@@ -56,7 +57,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
-      }
+      },
+      {
+        path: "/login", // Login route
+        element: <Login />,
+      },
     ],
     errorElement: <Error />,
   },
